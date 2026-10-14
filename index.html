@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SleekSpaces | Luxury Real Estate, Land, Leasing, POD Structures & Interior Design | Uganda & East Africa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-soft: #111111;
+      --surface: #161616;
+      --text: #f5f5f5;
+      --text-muted: #a0a0a0;
+      --accent: #c9a86c;
+      --accent-hover: #d4b87a;
+      --border: #2a2a2a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 4rem;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--text);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #0a0a0a !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-hover);
+      color: #0a0a0a !important;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 4rem;
+      position: relative;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.35), rgba(10,10,10,0.8)),
+                  url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.3s;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0a;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .section {
+      padding: 7rem 4rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header .tag {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2.3rem 1.8rem;
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+
+    .service-card:hover {
+      border-color: #3a3a3a;
+      transform: translateY(-6px);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      font-size: 1.7rem;
+      margin-bottom: 1.4rem;
+      color: var(--accent);
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 300;
+    }
+
+    .featured {
+      background: var(--bg-soft);
+    }
+
+    .properties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .property-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.4s;
+    }
+
+    .property-card:hover {
+      transform: translateY(-6px);
+      border-color: #3a3a3a;
+    }
+
+    .property-img {
+      height: 240px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .property-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--accent);
+      color: #0a0a0a;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .property-info {
+      padding: 1.5rem;
+    }
+
+    .property-info h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .property-location {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .property-meta {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .property-price {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1.15rem;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .property-price-ugx {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 400;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .property-specs {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .stat h4 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .stat p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .about-img {
+      height: 480px;
+      background: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80') center/cover;
+      border: 1px solid var(--border);
+    }
+
+    .pod-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pod-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.4s;
+    }
+
+    .pod-card:hover {
+      transform: translateY(-6px);
+      border-color: #3a3a3a;
+    }
+
+    .pod-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .pod-info {
+      padding: 1.5rem;
+    }
+
+    .pod-info h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .pod-info p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .pod-price {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .pod-price-ugx {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    .interior-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .interior-item {
+      height: 320px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .interior-item::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.2rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #111 0%, #0a0a0a 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .payment-note {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.4rem;
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      font-weight: 300;
+    }
+
+    .contact-info a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea, select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.9rem 1.1rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 3rem 4rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+    }
+
+    .footer-logo span {
+      color: var(--accent);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      width: 100%;
+      text-align: center;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero, .section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-img {
+        height: 320px;
+      }
+      footer {
+        padding: 2rem 1.5rem;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Sleek<span>Spaces</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="#pods">POD Structures</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#interior">Interiors</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Uganda • East Africa</span>
+      <h1>Spaces that define<br>modern living</h1>
+      <p>From prime land and luxury apartments to modular POD structures, seamless leasing and bespoke interior design — SleekSpaces delivers refined real estate solutions across Uganda and East Africa.</p>
+      <div class="hero-buttons">
+        <a href="#properties" class="btn btn-primary">Explore Properties</a>
+        <a href="#pods" class="btn btn-outline">View POD Designs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="section-header">
+      <span class="tag">What We Do</span>
+      <h2>Complete Real Estate Solutions</h2>
+      <p>Land. Lease. Living. Modular PODs. Design. Serving Kampala, Nairobi, Kigali, Dar es Salaam and beyond.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">◇</div>
+        <h3>Land Acquisition</h3>
+        <p>Prime residential, commercial and mixed-use land parcels carefully sourced across Uganda and key East African markets.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">◇</div>
+        <h3>Leasing & Rentals</h3>
+        <p>Flexible short and long-term leases for luxury apartments, offices and retail spaces with full management support.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">◇</div>
+        <h3>Luxury Apartments</h3>
+        <p>Curated high-end residences featuring panoramic views, smart technology and exclusive amenities in prime locations.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">◇</div>
+        <h3>POD Structures</h3>
+        <p>Modern modular and prefabricated POD homes — fast to deploy, durable, and designed for contemporary East African living.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">◇</div>
+        <h3>Interior Design</h3>
+        <p>Bespoke interior design services that transform spaces into sophisticated, functional sanctuaries tailored to East African living.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROPERTIES -->
+  <section class="section featured" id="properties">
+    <div class="section-header">
+      <span class="tag">Featured</span>
+      <h2>Selected Residences & Land</h2>
+      <p>Prices shown in USD and Ugandan Shillings (UGX). Payments accepted in both currencies.</p>
+    </div>
+    <div class="properties-grid">
+      <div class="property-card">
+        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=800&q=80')">
+          <span class="property-badge">For Sale</span>
+        </div>
+        <div class="property-info">
+          <h3>Kololo Skyline Penthouse</h3>
+          <p class="property-location">Kololo, Kampala • 18th Floor</p>
+          <div class="property-meta">
+            <span class="property-price">$1,850,000</span>
+            <span class="property-price-ugx">UGX 6,845,000,000</span>
+            <span class="property-specs">4 Bed · 3.5 Bath · 3,100 sqft</span>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80')">
+          <span class="property-badge">For Lease</span>
+        </div>
+        <div class="property-info">
+          <h3>Nakasero Heights</h3>
+          <p class="property-location">Nakasero, Kampala</p>
+          <div class="property-meta">
+            <span class="property-price">$4,200 / mo</span>
+            <span class="property-price-ugx">UGX 15,540,000 / mo</span>
+            <span class="property-specs">3 Bed · 2.5 Bath · 2,050 sqft</span>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80')">
+          <span class="property-badge">Land</span>
+        </div>
+        <div class="property-info">
+          <h3>Entebbe Lakeside Parcel</h3>
+          <p class="property-location">Entebbe • 2.4 Acres</p>
+          <div class="property-meta">
+            <span class="property-price">$780,000</span>
+            <span class="property-price-ugx">UGX 2,886,000,000</span>
+            <span class="property-specs">Development Ready</span>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1600047509807-ba8b95fdaa4c?auto=format&fit=crop&w=800&q=80')">
+          <span class="property-badge">For Sale</span>
+        </div>
+        <div class="property-info">
+          <h3>Westlands Residences</h3>
+          <p class="property-location">Westlands, Nairobi</p>
+          <div class="property-meta">
+            <span class="property-price">$1,250,000</span>
+            <span class="property-price-ugx">UGX 4,625,000,000</span>
+            <span class="property-specs">3 Bed · 3 Bath · 2,400 sqft</span>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=80')">
+          <span class="property-badge">For Lease</span>
+        </div>
+        <div class="property-info">
+          <h3>Kigali Heights Apartment</h3>
+          <p class="property-location">Kacyiru, Kigali</p>
+          <div class="property-meta">
+            <span class="property-price">$2,800 / mo</span>
+            <span class="property-price-ugx">UGX 10,360,000 / mo</span>
+            <span class="property-specs">2 Bed · 2 Bath · 1,650 sqft</span>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=800&q=80')">
+          <span class="property-badge">Land</span>
+        </div>
+        <div class="property-info">
+          <h3>Muyenga Hill Plot</h3>
+          <p class="property-location">Muyenga, Kampala • 0.5 Acres</p>
+          <div class="property-meta">
+            <span class="property-price">$420,000</span>
+            <span class="property-price-ugx">UGX 1,554,000,000</span>
+            <span class="property-specs">Ready for Development</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POD STRUCTURES -->
+  <section class="section" id="pods">
+    <div class="section-header">
+      <span class="tag">Modular Living</span>
+      <h2>POD Structural Designs</h2>
+      <p>Modern, durable and rapidly deployable modular POD homes. Perfect for residential, hospitality and commercial use across East Africa.</p>
+    </div>
+    <div class="pod-grid">
+      <div class="pod-card">
+        <div class="pod-img" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="pod-info">
+          <h3>Studio POD</h3>
+          <p>Compact 28–35 m² unit. Ideal for short-stay, staff housing or starter homes.</p>
+          <span class="pod-price">From $28,500</span>
+          <span class="pod-price-ugx">UGX 105,450,000</span>
+        </div>
+      </div>
+      <div class="pod-card">
+        <div class="pod-img" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="pod-info">
+          <h3>1-Bedroom POD</h3>
+          <p>45–55 m² fully finished modular unit with kitchen, bathroom and living area.</p>
+          <span class="pod-price">From $48,000</span>
+          <span class="pod-price-ugx">UGX 177,600,000</span>
+        </div>
+      </div>
+      <div class="pod-card">
+        <div class="pod-img" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="pod-info">
+          <h3>2-Bedroom Family POD</h3>
+          <p>70–85 m² expandable design. Perfect for families or boutique hospitality.</p>
+          <span class="pod-price">From $72,000</span>
+          <span class="pod-price-ugx">UGX 266,400,000</span>
+        </div>
+      </div>
+      <div class="pod-card">
+        <div class="pod-img" style="background-image: url('https://images.unsplash.com/photo-1600047509358-9dc7556c15bf?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="pod-info">
+          <h3>Custom Commercial POD</h3>
+          <p>Office, clinic, retail or hospitality pods. Fully customizable layouts and finishes.</p>
+          <span class="pod-price">From $55,000</span>
+          <span class="pod-price-ugx">UGX 203,500,000</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section featured" id="about">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="tag" style="color: var(--accent); letter-spacing: 3px; font-size: 0.75rem; text-transform: uppercase;">About Us</span>
+        <h2>Rooted in Uganda.<br>Growing across East Africa.</h2>
+        <p>SleekSpaces is a Kampala-based real estate company dedicated to delivering exceptional spaces across Uganda and the wider East African region.</p>
+        <p>We specialize in land acquisition, luxury apartments, modular POD structures, leasing solutions and complete interior design — offering clients a seamless journey from acquisition to move-in ready living.</p>
+        <div class="stats">
+          <div class="stat">
+            <h4>180+</h4>
+            <p>Properties Placed</p>
+          </div>
+          <div class="stat">
+            <h4>12</h4>
+            <p>Years Experience</p>
+          </div>
+          <div class="stat">
+            <h4>5</h4>
+            <p>East African Markets</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-img"></div>
+    </div>
+  </section>
+
+  <!-- INTERIOR DESIGN -->
+  <section class="section" id="interior">
+    <div class="section-header">
+      <span class="tag">Interior Design</span>
+      <h2>Spaces designed with purpose</h2>
+      <p>Our in-house design studio transforms apartments, homes and POD units into sophisticated, livable works of art suited to East African lifestyles.</p>
+    </div>
+    <div class="interior-grid">
+      <div class="interior-item" data-label="Living Rooms" style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80')"></div>
+      <div class="interior-item" data-label="Kitchens" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=80')"></div>
+      <div class="interior-item" data-label="Bedrooms" style="background-image: url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80')"></div>
+      <div class="interior-item" data-label="Outdoor Living" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=600&q=80')"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to find your next space?</h2>
+    <p>Whether you're acquiring land, leasing an apartment, ordering modular POD structures, or redesigning your home — our team is ready to guide you.</p>
+    <a href="#contact" class="btn btn-primary">Schedule a Private Consultation</a>
+    <div class="payment-note">Payments accepted in USD ($) and Ugandan Shillings (UGX)</div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="section-header">
+      <span class="tag">Contact</span>
+      <h2>Let's start the conversation</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Get in touch</h3>
+        <p>Email: <a href="mailto:hello@sleekspaces.ug">hello@sleekspaces.ug</a></p>
+        <p>Phone: +256 700 123 456</p>
+        <p>WhatsApp: +256 700 123 456</p>
+        <p>Office: Plot 12, Yusuf Lule Road<br>Nakasero, Kampala, Uganda</p>
+        <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem;">
+          We respond within 24 hours on business days.<br>
+          Serving Uganda, Kenya, Rwanda, Tanzania & beyond.<br><br>
+          <strong style="color: var(--accent);">Payments accepted in both USD and UGX.</strong>
+        </p>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Thank you! Our Kampala team will be in touch shortly.');">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone / WhatsApp">
+        <select required>
+          <option value="" disabled selected>I'm interested in...</option>
+          <option>Buying Land</option>
+          <option>Leasing / Renting</option>
+          <option>Buying an Apartment</option>
+          <option>POD / Modular Structures</option>
+          <option>Interior Design Services</option>
+          <option>General Inquiry</option>
+        </select>
+        <textarea placeholder="Tell us a bit about what you're looking for..."></textarea>
+        <button type="submit" class="btn btn-primary" style="border: none; cursor: pointer; margin-top: 0.5rem;">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Sleek<span>Spaces</span></div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#properties">Properties</a>
+      <a href="#pods">POD Structures</a>
+      <a href="#about">About</a>
+      <a href="#interior">Interiors</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="copyright">© 2026 SleekSpaces. All rights reserved. Kampala, Uganda · Serving East Africa · Payments in USD & UGX</div>
+  </footer>
+
+</body>
+</html>
